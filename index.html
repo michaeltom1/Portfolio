@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Tom</title>
+
+    <style>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    </style>
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+
+      @font-face {
+        font-family: inter;
+        src: url("./src/fonts/InterVariable.woff2") format("woff2");
+        font-display: swap;
+        font-weight: 100 900;
+      }
+      body {
+        font-family: 'inter';
+      }
+    </style>
+  </head>
+  <body
+    class="bg-grid-bg dark:bg-grid-bg-dark bg-grid-size bg-light-background dark:bg-dark-background text-light-foreground dark:text-dark-foreground"
+  >
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
