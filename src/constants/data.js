@@ -59,3 +59,15 @@ export const projectItems = [
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
 ];
+
+export const appstyle = `font-inter bg-grid-bg dark:bg-grid-bg-dark bg-grid-size bg-light-background dark:bg-dark-background text-light-foreground dark:text-dark-foreground`;
+
+export const css = `
+* {scroll-behavior: smooth;}
+
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-display: swap; font-weight: 100 900;
+}
+`;

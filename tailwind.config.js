@@ -7,6 +7,9 @@ export default {
       screens: {
         900: "900px",
       },
+      fontFamily: {
+        inter: "'Inter', Arial, Helvetica, sans-serif",
+      },
       fontSize: {
         "responsive-text": "clamp(40px, 8vw, 80px)",
       },

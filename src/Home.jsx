@@ -1,4 +1,3 @@
-import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { About, Hero, Projects, Contact } from "./components/sections";
 import Header from "./components/Header";
