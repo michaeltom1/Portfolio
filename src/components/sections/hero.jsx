@@ -9,7 +9,7 @@ export default function Hero() {
       </h1>
       <p
         className={
-          "text-light-job dark:text-dark-job font-extrabold text-responsive-text leading-[1] mb-4 md:text-[4rem]"
+          "text-light-job dark:text-dark-job font-extrabold text-3xl sm:text-responsive-text leading-[1] mb-4"
         }
       >
         I am a Frontend Web Developer

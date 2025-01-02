@@ -1,6 +1,9 @@
-import { michael } from "../../assets/assets";
+import { useState } from "react";
 import Section from "../ui/section";
+import { michael, michaelc } from "../../assets/assets";
+
 export default function About() {
+  const [colored, setColored] = useState(false);
   return (
     <>
       <Section
@@ -32,11 +35,21 @@ export default function About() {
             </p>
           </div>
           <div>
-            <img
-              src={michael}
-              alt="michael tom"
-              className={"rounded-2xl object-cover size-64 md:size-80"}
-            />
+            {colored ? (
+              <img
+                src={michaelc}
+                alt="michael tom"
+                className={"rounded-2xl object-cover size-64 md:size-80"}
+                onMouseLeave={() => setColored(false)}
+              />
+            ) : (
+              <img
+                src={michael}
+                alt="michael tom"
+                className={"rounded-2xl object-cover size-64 md:size-80"}
+                onMouseOver={() => setColored(true)}
+              />
+            )}
           </div>
         </div>
       </Section>

@@ -60,7 +60,7 @@ export const projectItems = [
   },
 ];
 
-export const appstyle = `font-inter bg-grid-bg dark:bg-grid-bg-dark bg-grid-size bg-light-background dark:bg-dark-background text-light-foreground dark:text-dark-foreground`;
+export const appstyle = `font-inter bg-grid-bg dark:bg-grid-bg-dark bg-grid-size bg-light-background dark:bg-dark-background text-light-foreground dark:text-dark-foreground selection:bg-dark-job dark:selection:bg-light-job`;
 
 export const css = `
 * {scroll-behavior: smooth;}
@@ -69,5 +69,18 @@ export const css = `
   font-family: Inter;
   src: url("/fonts/InterVariable.woff2") format("woff2");
   font-display: swap; font-weight: 100 900;
+}
+
+img,
+footer,
+nav {
+  user-select: none;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #cccccc #ffffff;
+}
+html.dark {
+  scrollbar-color: #333333 #0d0f12;
 }
 `;

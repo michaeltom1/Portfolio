@@ -1,5 +1,5 @@
 import michael from "./mich.jpg";
-import themeIcon from "./theme.svg";
+import michaelc from "./mich1.jpg";
 import logo from "./logo.svg";
 
-export { logo, michael, themeIcon };
+export { logo, michael, michaelc };

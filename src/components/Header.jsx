@@ -1,15 +1,15 @@
 import { logo } from "../assets/assets";
-import { Link } from "react-router-dom";
 import { navItems } from "../constants/data";
 import { useState, useEffect } from "react";
 import { MdBrightness6 } from "react-icons/md";
+import { LuMenu, LuX } from "react-icons/lu";
 
 const HeaderWithBall = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
-  const [menu, setMenu] = useState(false);
   const savedTheme = localStorage.getItem("theme") || null;
   const [theme, setTheme] = useState(savedTheme);
+  const [menu, setMenu] = useState(false);
 
   // Set initial theme based on system preference or saved theme
   useEffect(() => {
@@ -68,23 +68,31 @@ const HeaderWithBall = () => {
           [backdrop-filter:blur(16px)] [--webkit-backdrop-filter:blur(16px)]
           bg-[hsl(0,0%,100%/0.5)]"
         >
-          <nav className="w-4/5 mx-auto flex items-center justify-between py-2 ">
-            <div>
+          <nav className="w-11/12 md:w-4/5 mx-auto flex items-center justify-between py-2 ">
+            <div className={`${menu && "hidden"} md:block`}>
               <a href="/">
                 <img src={logo} alt="logo" className="size-12" />
               </a>
             </div>
-            <div className="flex items-center gap-4">
+            <div className={`${!menu ? "hidden md:flex" : "flex"} items-center gap-4`}>
               <ul className="flex items-center gap-4 ">
                 {navItems.map((item) => (
-                  <li key={item.id}>
-                    <a href={item.path}>{item.pathName}</a>
+                  <li key={item.id} onClick={() => setMenu(false)}>
+                    <a
+                      href={item.path}
+                      className="hover:font-semibold hover:text-light-Name dark:hover:text-dark-Name"
+                    >
+                      {item.pathName}
+                    </a>
                   </li>
                 ))}
               </ul>
               <button onClick={handleTheme}>
                 <MdBrightness6 className="size-6 text-light-foreground dark:text-dark-foreground" />
               </button>
+            </div>
+            <div className="text-4xl md:hidden" onClick={() => setMenu(!menu)}>
+              {!menu ? <LuMenu /> : <LuX />}
             </div>
           </nav>
         </div>
@@ -99,3 +107,23 @@ const HeaderWithBall = () => {
 };
 
 export default HeaderWithBall;
+
+/*
+ <div className="hidden md:flex items-center gap-4">
+              <ul className="flex items-center gap-4 ">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={item.path}
+                      className="hover:font-semibold hover:text-light-Name dark:hover:text-dark-Name"
+                    >
+                      {item.pathName}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <button onClick={handleTheme}>
+                <MdBrightness6 className="size-6 text-light-foreground dark:text-dark-foreground" />
+              </button>
+            </div>
+*/
