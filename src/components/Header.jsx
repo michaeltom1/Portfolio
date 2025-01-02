@@ -47,6 +47,7 @@ const HeaderWithBall = () => {
       const currentValue = window.scrollY;
       if (currentValue > lastScroll && currentValue > 100) {
         setIsVisible(false);
+        setMenu(false);
       } else if (currentValue < lastScroll) {
         setIsVisible(true);
       }
@@ -74,7 +75,11 @@ const HeaderWithBall = () => {
                 <img src={logo} alt="logo" className="size-12" />
               </a>
             </div>
-            <div className={`${!menu ? "hidden md:flex" : "flex"} items-center gap-4`}>
+            <div
+              className={`${
+                !menu ? "hidden md:flex" : "flex"
+              } items-center gap-4`}
+            >
               <ul className="flex items-center gap-4 ">
                 {navItems.map((item) => (
                   <li key={item.id} onClick={() => setMenu(false)}>

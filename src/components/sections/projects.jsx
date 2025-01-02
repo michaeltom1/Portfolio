@@ -5,6 +5,9 @@ import { projectItems } from "../../constants/data";
 export default function Projects() {
   return (
     <Section id={"projects"} title={"Projects"}>
+      <div>
+         
+      </div>
       <div className={"grid gap-8 my-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"}>
         {projectItems.map((item) => (
           <Card

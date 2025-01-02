@@ -13,7 +13,9 @@ export default function Footer() {
             "flex flex-col text-center gap-4 mb-4 sm:mb-0 items-center text-xs 900:flex-row"
           }
         >
-          <img src={logo} alt="Logo" className={"size-12"} />
+          <a href="#">
+            <img src={logo} alt="Logo" className={"size-12"} />
+          </a>
           <p>Designed and Developed by Michael Tom</p>
           <Link
             href={"https://github.com/michaeltom1/portfolio"}
