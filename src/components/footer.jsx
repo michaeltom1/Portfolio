@@ -3,6 +3,7 @@ import { footerLinks } from "../constants/data";
 import Button from "./ui/button";
 import { LuStar } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -16,7 +17,13 @@ export default function Footer() {
           <a href="#">
             <img src={logo} alt="Logo" className={"size-12"} />
           </a>
-          <p>Designed and Developed by Michael Tom</p>
+          <motion.p
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.7 }}
+          >
+            Designed and Developed by Michael Tom
+          </motion.p>
           <Link
             href={"https://github.com/michaeltom1/portfolio"}
             target="_blank"

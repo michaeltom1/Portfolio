@@ -1,5 +1,6 @@
 import Section from "../ui/section";
 import Button from "../ui/button";
+
 export default function Contact() {
   return (
     <Section

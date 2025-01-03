@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Section from "../ui/section";
 import { michael, michaelc } from "../../assets/assets";
+import { motion } from "framer-motion";
 
 export default function About() {
   const [colored, setColored] = useState(false);
@@ -35,21 +36,33 @@ export default function About() {
             </p>
           </div>
           <div>
-            {colored ? (
-              <img
-                src={michaelc}
-                alt="michael tom"
-                className={"rounded-2xl object-cover size-64 md:size-80"}
-                onMouseLeave={() => setColored(false)}
-              />
-            ) : (
-              <img
-                src={michael}
-                alt="michael tom"
-                className={"rounded-2xl object-cover size-64 md:size-80"}
-                onMouseOver={() => setColored(true)}
-              />
-            )}
+            <motion.div
+              className="rounded-2xl overflow-hidden shadow-2xl w-fit"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 1 * 0.2 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+              }}
+              viewport={{ once: true }}
+            >
+              {colored ? (
+                <img
+                  src={michaelc}
+                  alt="michael tom"
+                  className="object-cover size-64 md:size-80"
+                  onMouseLeave={() => setColored(false)}
+                />
+              ) : (
+                <img
+                  src={michael}
+                  alt="michael tom"
+                  className="object-cover size-64 md:size-80"
+                  onMouseOver={() => setColored(true)}
+                />
+              )}
+            </motion.div>
           </div>
         </div>
       </Section>

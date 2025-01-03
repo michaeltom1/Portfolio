@@ -3,8 +3,9 @@ import { navItems } from "../constants/data";
 import { useState, useEffect } from "react";
 import { MdBrightness6 } from "react-icons/md";
 import { LuMenu, LuX } from "react-icons/lu";
+import { motion } from "framer-motion";
 
-const HeaderWithBall = () => {
+const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
   const savedTheme = localStorage.getItem("theme") || null;
@@ -70,35 +71,57 @@ const HeaderWithBall = () => {
           bg-[hsl(0,0%,100%/0.5)]"
         >
           <nav className="w-11/12 md:w-4/5 mx-auto flex items-center justify-between py-2 ">
-            <div className={`${menu && "hidden"} md:block`}>
+            <motion.div
+              className={`${menu && "hidden"} md:block`}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+            >
               <a href="/">
                 <img src={logo} alt="logo" className="size-12" />
               </a>
-            </div>
+            </motion.div>
             <div
               className={`${
                 !menu ? "hidden md:flex" : "flex"
               } items-center gap-4`}
             >
               <ul className="flex items-center gap-4 ">
-                {navItems.map((item) => (
-                  <li key={item.id} onClick={() => setMenu(false)}>
+                {navItems.map((item, index) => (
+                  <motion.li
+                    key={item.id}
+                    onClick={() => setMenu(false)}
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2, duration: 0.5 }}
+                  >
                     <a
                       href={item.path}
                       className="hover:font-semibold hover:text-light-Name dark:hover:text-dark-Name"
                     >
                       {item.pathName}
                     </a>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-              <button onClick={handleTheme}>
+              <motion.button
+                onClick={handleTheme}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              >
                 <MdBrightness6 className="size-6 text-light-foreground dark:text-dark-foreground" />
-              </button>
+              </motion.button>
             </div>
-            <div className="text-4xl md:hidden" onClick={() => setMenu(!menu)}>
+            <motion.div
+              className="text-4xl md:hidden"
+              onClick={() => setMenu(!menu)}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
               {!menu ? <LuMenu /> : <LuX />}
-            </div>
+            </motion.div>
           </nav>
         </div>
         <div
@@ -111,24 +134,4 @@ const HeaderWithBall = () => {
   );
 };
 
-export default HeaderWithBall;
-
-/*
- <div className="hidden md:flex items-center gap-4">
-              <ul className="flex items-center gap-4 ">
-                {navItems.map((item) => (
-                  <li key={item.id}>
-                    <a
-                      href={item.path}
-                      className="hover:font-semibold hover:text-light-Name dark:hover:text-dark-Name"
-                    >
-                      {item.pathName}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <button onClick={handleTheme}>
-                <MdBrightness6 className="size-6 text-light-foreground dark:text-dark-foreground" />
-              </button>
-            </div>
-*/
+export default Header;

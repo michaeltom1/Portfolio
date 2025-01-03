@@ -1,10 +1,26 @@
+import { motion } from "framer-motion";
+
 export default function Section({ id, title, children, style, sectionStyle }) {
   return (
-    <section id={id} className={sectionStyle}>
+    <motion.section
+      id={id}
+      className={sectionStyle}
+      initial={{ y: 50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ delay: "", duration: 1 }}
+      viewport={{ once: true }}
+    >
       <div className={`w-4/5 mx-auto py-16 ${style}`}>
-        <h2 className={"text-[2rem] md:text-[4rem] text-center font-bold"}>{title}</h2>
+        <motion.h2
+          className={"text-[2rem] md:text-[4rem] text-center font-bold"}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          {title}
+        </motion.h2>
         {children}
       </div>
-    </section>
+    </motion.section>
   );
 }
