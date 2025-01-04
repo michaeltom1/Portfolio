@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { LuX } from "react-icons/lu";
 export default function OfflineIndicator() {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
-  const [close, closeMenu] = useState(false);
+  // import { LuX } from "react-icons/lu";
+  // const [close, closeMenu] = useState(false);
 
   useEffect(() => {
     const handleOnline = () => setIsOffline(false);
@@ -17,13 +17,19 @@ export default function OfflineIndicator() {
     };
   }, []);
 
-  if (!isOffline) return null;
+  if (!isOffline) {
+    return null;
+  } else {
+    console.log("Offline");
+  }
 
-  return (
-    <div
-      className={`flex items-center gap-4 fixed bottom-4 right-4 rounded bg-light-job p-2 text-white ${close && "hidden"}`}
-    >
-      You are offline <LuX onClick={() => closeMenu(true)} />
-    </div>
-  );
+  // return (
+  //   <div
+  //     className={`flex items-center gap-4 fixed bottom-4 right-4 rounded bg-light-job p-2 text-white ${
+  //       close && "hidden"
+  //     }`}
+  //   >
+  //     You are offline <LuX onClick={() => closeMenu(true)} />
+  //   </div>
+  // );
 }
