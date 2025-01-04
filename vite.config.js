@@ -8,10 +8,15 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
+      includeAssets: [
+        "favicon.ico",
+        "apple-touch-icon.png",
+        "mask-icon.svg",
+        "./src/assets",
+      ],
       manifest: {
-        name: "My Portfolio App",
-        short_name: "Portfolio Website PWA",
+        name: "Michael Tom",
+        short_name: "Michael Tom",
         description: "My Awesome Portfolio App",
         theme_color: "#000000",
         background_color: "#ffffff",
@@ -34,7 +39,8 @@ export default defineConfig({
         globPatterns: ["**/*.{js,css,html,ico,png,svg,json}"],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/,
+            urlPattern: /.*\.(js|css|html|png|jpg|svg|woff2?)$/,
+            // urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/,
             handler: "NetworkFirst",
             options: {
               cacheName: "assets-cache",

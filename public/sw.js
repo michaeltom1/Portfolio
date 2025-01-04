@@ -122,32 +122,6 @@ export default defineConfig({
 
 
 
-// 1. First, install required dependencies
-// package.json
-{
-  "name": "vite-pwa-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "vite": "^4.4.5",
-    "vite-plugin-pwa": "^0.16.7",
-    "workbox-window": "^7.0.0"
-  }
-}
-
 // 2. Configure Vite with PWA plugin
 // vite.config.js
 import { defineConfig } from 'vite'
