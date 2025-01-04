@@ -12,7 +12,6 @@ export default defineConfig({
         "favicon.ico",
         "apple-touch-icon.png",
         "mask-icon.svg",
-        "./src/assets",
       ],
       manifest: {
         name: "Michael Tom",
@@ -32,26 +31,41 @@ export default defineConfig({
             src: "android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png",
-          },
+          },  
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,json}"],
         runtimeCaching: [
+          // Cache images
           {
-            urlPattern: /.*\.(js|css|html|png|jpg|svg|woff2?)$/,
-            // urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/,
-            handler: "NetworkFirst",
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "images-cache",
+              expiration: {
+                maxEntries: 50, // Max 50 images
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+              },
+            },
+          },
+          // Cache fonts
+          {
+            urlPattern: /\.(?:woff|woff2|ttf|otf)$/,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "fonts-cache",
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
+              },
+            },
+          },
+          // Cache CSS/JS/other assets
+          {
+            urlPattern: /\.(?:css|js|woff2|woff|ttf)$/,
+            handler: "StaleWhileRevalidate",
             options: {
               cacheName: "assets-cache",
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
-                // maxAgeSeconds: 60 * 60 * 24 // 24 hours
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
             },
           },
         ],
