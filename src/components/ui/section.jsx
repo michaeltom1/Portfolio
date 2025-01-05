@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function Section({ id, title, children, style, sectionStyle }) {
+export default function Section({ id, title, children, style, sectionStyle, description }) {
   return (
     <motion.section
       id={id}
@@ -19,6 +19,11 @@ export default function Section({ id, title, children, style, sectionStyle }) {
         >
           {title}
         </motion.h2>
+        {description && (
+          <p className="font-bold mb-4 text-light-text-color dark:text-dark-text-color md:text-[2rem] text-center">
+            {description}
+          </p>
+        )}
         {children}
       </div>
     </motion.section>

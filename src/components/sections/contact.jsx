@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <Section
       id={"contact"}
-      title={"Contact Me"}
+      title={"Let's Connect"}
       style={"text-center flex flex-col justify-center items-center h-[70vh] gap- md:h-screen"}
     >
       <div>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <Section id={"projects"} title={"Projects"}>
+    <Section id={"projects"} title={"Things I've built"} description={"Here are some of the projects I've worked on."}>
       <div
         className={"grid gap-8 my-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"}
       >
@@ -21,7 +21,7 @@ export default function Projects() {
             }}
             viewport={{once: true}}
           >
-            <Card description={item.description} title={item.title} />
+            <Card description={item.description} title={item.title} linkUrl={item.link}/>
           </motion.div>
         ))}
       </div>

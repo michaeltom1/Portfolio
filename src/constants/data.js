@@ -1,6 +1,7 @@
 import { LuLinkedin, LuGithub, LuMail } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { logo } from "../assets/assets";
+import { link } from "framer-motion/client";
 export const navItems = [
   {
     id: 1,
@@ -45,18 +46,24 @@ export const footerLinks = [
 export const projectItems = [
   {
     id: 1,
+    link: "https://takenotes1.vercel.app/",
     title: "Note App",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    description:
+      "A Note App built with React and Tailwind CSS. Can be used to add, delete and edit notes.",
   },
   {
     id: 2,
+    link: "https://miketodos.vercel.app/",
     title: "Todo App",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    description:
+      "A Todo App built with React and Tailwind CSS. Can be used to add, delete and edit tasks. minimalistic design. simple to use and easy to understand.",
   },
   {
     id: 3,
+    link: "https://kinatechbrainz.com/",
     title: "Blog Site",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    description:
+      "A Blog Site built with React and Tailwind CSS. Can be used to add, delete and edit blogs.",
   },
 ];
 

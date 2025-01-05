@@ -24,10 +24,7 @@ export default function Footer() {
           >
             Designed and Developed by Michael Tom
           </motion.p>
-          <Link
-            href={"https://github.com/michaeltom1/portfolio"}
-            target="_blank"
-          >
+          <Link to={"https://github.com/michaeltom1/portfolio"} target="_blank">
             <LuStar className="text-light-text-color dark:text-dark-text-color" />
           </Link>
         </div>
