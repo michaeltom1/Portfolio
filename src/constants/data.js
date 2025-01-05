@@ -1,7 +1,6 @@
 import { LuLinkedin, LuGithub, LuMail } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
-import { logo } from "../assets/assets";
-import { link } from "framer-motion/client";
+
 export const navItems = [
   {
     id: 1,
