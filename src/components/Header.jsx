@@ -2,7 +2,6 @@ import { logo } from "../assets/assets";
 import { navItems } from "../constants/data";
 import { useState, useEffect } from "react";
 import { MdBrightness6 } from "react-icons/md";
-import { LuMenu, LuX } from "react-icons/lu";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -113,6 +112,8 @@ const Header = () => {
                 <MdBrightness6 className="size-6 text-light-foreground dark:text-dark-foreground" />
               </motion.button>
             </div>
+            
+            {/* hamburger menu */}
             <motion.div
               className="text-4xl md:hidden"
               onClick={() => setMenu(!menu)}
@@ -120,7 +121,28 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
             >
-              {!menu ? <LuMenu /> : <LuX />}
+              <div
+                onClick={() => setMenu(!menu)}
+                className={`w-10 h-8 flex flex-col justify-between cursor-pointer transition-transform duration-300 ${
+                  menu ? "rotate-90" : ""
+                }`}
+              >
+                <span
+                  className={`w-full h-[2px] bg-light-foreground dark:bg-dark-foreground transition-transform duration-300 rounded-md ${
+                    menu ? "translate-y-[14px] -rotate-45" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-full h-[2px] bg-light-foreground dark:bg-dark-foreground transition-opacity duration-300 rounded-md ${
+                    menu ? "opacity-0" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-full h-[2px] bg-light-foreground dark:bg-dark-foreground transition-transform duration-300 rounded-md ${
+                    menu ? "-translate-y-[14px] rotate-45" : ""
+                  }`}
+                ></span>
+              </div>
             </motion.div>
           </nav>
         </div>
