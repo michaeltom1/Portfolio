@@ -9,7 +9,7 @@ export default function Hero() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
       >
-        Hello, my name is{" "}
+        Hello, my name is
       </motion.p>
       <motion.h1
         className="font-extrabold text-light-Name dark:text-dark-Name text-responsive-text leading-[1] mb-4"

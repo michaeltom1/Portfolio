@@ -57,6 +57,10 @@ const Header = () => {
 
     return () => removeEventListener("scroll", toggleNav);
   }, [lastScroll]);
+
+  const handleNavLink = (sectionId) => {
+    document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <header
@@ -94,12 +98,12 @@ const Header = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2, duration: 0.5 }}
                   >
-                    <a
-                      href={item.path}
-                      className="hover:font-semibold hover:text-light-Name dark:hover:text-dark-Name"
+                    <span
+                      onClick={() => handleNavLink(item.path)}
+                      className="hover:font-semibold hover:text-light-Name dark:hover:text-dark-Name cursor-pointer"
                     >
                       {item.pathName}
-                    </a>
+                    </span>
                   </motion.li>
                 ))}
               </ul>
@@ -112,7 +116,7 @@ const Header = () => {
                 <MdBrightness6 className="size-6 text-light-foreground dark:text-dark-foreground" />
               </motion.button>
             </div>
-            
+
             {/* hamburger menu */}
             <motion.div
               className="text-4xl md:hidden"

@@ -5,17 +5,17 @@ export const navItems = [
   {
     id: 1,
     pathName: "About",
-    path: "#about",
+    path: "about",
   },
   {
     id: 2,
     pathName: "Projects",
-    path: "#projects",
+    path: "projects",
   },
   {
     id: 3,
     pathName: "Contact",
-    path: "#contact",
+    path: "contact",
   },
 ];
 
